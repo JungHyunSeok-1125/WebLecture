@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Calculator</title>
+
+	<style>
+		table {
+			border :1px solid black;
+			width : 200px;
+		}
+		td {
+			padding : 3px;
+			width : 20px;
+			text-align: center;
+		}
+		
+		input {
+			height : 100%;
+			width : 100%;
+		}
+	</style>
+	
+	<script>
+		function inputValue(value) {
+			var inputArea = document.getElementById('calcValue');
+			inputArea.value = inputArea.value + value;
+		}
+		
+		function calculateValue() {
+			var inputArea = document.getElementById('calcValue');
+			var result = eval(inputArea.value);
+			inputArea.value = result;
+		}
+		function clearArea() {
+			document.getElementById('calcValue').value = "";
+		}
+	</script>
+	
+	
+</head>
+<body>
+
+	<table border="1">
+	<tr>
+		<td colspan = 4><input id ="calcValue" type="text"></td>
+	</tr>
+		<tr>
+			<td>
+				<input type ="button" onclick="inputValue(7)" value = 7>
+			</td>
+			<td>
+				<input type ="button" onclick="inputValue(8)" value = 8>
+			</td>
+			<td>
+				<input type ="button" onclick="inputValue(9)" value = 9>
+			</td>
+			<td>
+				<input type ="button" onclick="inputValue('/')" value = "/">
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<input type ="button" onclick="inputValue(4)" value = 4>
+			</td>
+			<td>
+				<input type ="button" onclick="inputValue(5)" value = 5>
+			</td>
+			<td>
+				<input type ="button" onclick="inputValue(6)" value = 6>
+			</td>
+			<td>
+				<input type ="button" onclick="inputValue('*')" value = *>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<input type ="button" onclick="inputValue(1)" value = 1>
+			</td>
+			<td>
+				<input type ="button" onclick="inputValue(2)" value = 2>
+			</td>
+			<td>
+				<input type ="button" onclick="inputValue(3)" value = 3>
+			</td>
+			<td>
+				<input type ="button" onclick="inputValue('-')" value = ->
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<input type ="button" onclick="inputValue(0)" value = 0>
+			</td>
+			<td>
+				<input type ="button" onclick="inputValue('.')" value = ".">
+			</td>
+			<td>
+				<input type ="button" onclick="inputValue('+')" value = "+">
+			</td>
+			<td>
+				<input type ="button" onclick="inputValue('%')" value = "%">
+			</td>
+		</tr>
+		<tr>
+			<td colspan = 2>
+				<input type ="button" onclick="calculateValue()" value = "=">
+			</td>
+			<td colspan = 2>
+				<input type ="button" onclick="clearArea()" value = "Clear">
+			</td>
+		</tr>
+	</table>
+</body>
+</html>

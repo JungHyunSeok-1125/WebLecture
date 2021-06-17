@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="dragdrop.css">
+<script>
+	var dragged;
+
+	function fnOnLoad() {
+		
+		//1. drag가 시작될 때 발생 
+		document.getElementById("dragSource").ondragstart = function(event) {
+			//좌측 div를 drag하면, event.dataTransfer를 통해 drop 타겟(id='dragTarget')에 전달할 데이터 입력
+			// => 'sourceId' 속성에 id="dragSource" Elemsent의 id속성값(='dragSource') 저장
+			event.dataTransfer.setData('sourceId', this.id) 
+			//drag가 된 죄측 div의'effectAllowed'를 'copy'로 설정 
+			event.dataTransfer.effectAllowed = "copy";
+		}
+
+		//2. drop 타겟(id="dragTarget"인 <td> Element) 위로 Element가 넘어올 때 발생
+		document.getElementById("dragTarget").ondragover = function(event) {
+			
+			// drag된 Element의 'effectAllowed'가 'copy'로 설정되어 있다면...
+			if (event.dataTransfer.effectAllowed == "copy") {
+				//drop 타켓 바탕색을 파란색으로 변경
+				event.target.style.backgroundColor = "#1E8BC3"; 
+				
+			//drag된 Element의 'effectAllowed'가 'move'로 설정되어 있다면...
+			} else if (event.dataTransfer.effectAllowed == "move") { 
+				//drop 타켓 바탕색을 빨간색으로 변경
+				event.target.style.backgroundColor = "red"; 
+			}
+			
+			// dragover 이벤트가 동작할 경우, drop 이벤트가 발생하지 않으므로 
+			// 아래 코드를 통해 drop 이벤트를 허용한다.
+			event.preventDefault();
+		}
+
+		//3. drag된 Element가 drop 타겟에 떨어질 때 발생
+		document.getElementById("dragTarget").ondrop = function(event) {
+			
+			//drop 타켓(id="dragTarget"인 <td> Element)의 바탕색을 투명으로 변경
+			event.target.style.backgroundColor = "transparent";
+
+			//drag된 Element의 'effectAllowed'가 'copy'로 설정되어 있다면...
+			if (event.dataTransfer.effectAllowed == "copy") {
+				//'sourceId' 속성에 저장된 데이타(drag된 Element의 id값)를 추출
+				var sourceId = event.dataTransfer.getData("sourceId");
+				//'sourceId' 속성값에 해당하는 Element의 레퍼런스를 'sourceDiv'에 저장
+				var sourceDiv = document.getElementById(sourceId);
+				//'sourceId' 속성값에 해당하는 Element를 복제한 후 복제된 DIV의 레퍼런스를 'newDiv'에 저장 
+				var newDiv = sourceDiv.cloneNode(true);
+
+				//복제된 DIV를 drag할 때 발생
+				newDiv.ondragstart = function(event) {
+					//복제된 DIV의 'effectAllowed'를 'copy'로 설정 
+					event.dataTransfer.effectAllowed = "move";
+					//복제된 DIV의 레퍼런스를 'dragged' 변수에 저장
+					dragged = event.target;
+				}
+
+				if (event.target.tagName == "DIV") {
+					event.target.parentNode.appendChild(newDiv);
+				} else if (event.target.id == "dragTarget") {
+					//drop 타켓의 child Element로 복제된 DIV추가
+					event.target.appendChild(newDiv);
+				}
+				
+			//drag된 Element의 'effectAllowed'가 'move'로 설정되어 있다면...
+			} else if (event.dataTransfer.effectAllowed == "move") {
+				//drop 타켓 Element(=>dragged.parentNode)에서 drag된 Element를 제거
+				dragged.parentNode.removeChild(dragged);
+			}
+		}
+		
+		//drag된 Element가 drop 타겟을 벗어날 때 발생
+		document.getElementById("dragTarget").ondragleave = function(event) {
+			// drop 타겟의 바탕색을 투명으로 변경
+			event.target.style.backgroundColor = "transparent";
+		}
+	}
+</script>
+
+</head>
+<body>
+
+<table>
+		<tr>
+			<td>
+				<!-- drag 대상 Element -->
+				<div id="dragSource" class="draggable-div" draggable="true">draggable="true"</div>
+			</td>
+			<!-- drop 타켓 Element -->
+			<td id="dragTarget"></td>
+		</tr>
+	</table>
+</body>
+</html>

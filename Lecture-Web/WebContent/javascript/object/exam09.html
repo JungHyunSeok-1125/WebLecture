@@ -1,0 +1,68 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+/* 
+class Person {
+	constructor(name, phone, addr) {
+		this.name = name
+		this.phone = phone
+		this.addr = addr
+	}
+	
+	info() {
+		alert(`name : ${ this.name }\nphone: ${ this.phone }\naddr : ${ this.addr }`)
+	}
+}
+
+let p = new Person("홍길동", "010-1111-2222", "경기도 광명시")
+p.info()
+console.log(p) */
+
+class Person {
+		constructor(name, phone, addr) {
+			this._name = name
+			this._phone = phone
+			this._addr = addr
+		}
+		
+		info() {
+			alert(`name : ${ this._name }\nphone: ${ this._phone }\naddr : ${ this._addr }`)
+		}
+		
+		get name(){
+			return this._name
+		}
+		
+		set name(name){
+			this._name = name
+		}
+		
+		get phone(){
+			return this._phone
+		}
+		
+		set phone(phone){
+			this._phone = _phone
+		}
+		
+	}
+
+	let p = new Person("홍길동", "010-1111-2222", "경기도 광명시")
+	p.info()
+	console.log(p)
+
+	p._name = '홍길순'
+	console.log(p)
+	
+	
+	
+</script>
+</head>
+<body>
+
+</body>
+</html>

@@ -1,0 +1,37 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+	window.onload = function(){
+		let divTag = document.getElementById("div01")
+		let hTag = document.getElementById("h01")
+		let spanTag = document.getElementById("span01")
+		
+		divTag.onclick = function(){
+			alert('div click...')
+		}
+		
+		hTag.onclick = function(a){
+			alert('h1 click...')
+			
+			a = a||window.open 
+			a.cancelBubble = true
+		}
+
+		spanTag.onclick = function(){
+			alert('span click...')
+		}
+	}
+</script>
+</head>
+<body>
+	<div id = "div01">
+		<h1 id='h01' onclick="event.cancelBubble=true">
+			<span id = "span01">안녕하세요</span>
+		</h1>
+	</div>
+</body>
+</html>

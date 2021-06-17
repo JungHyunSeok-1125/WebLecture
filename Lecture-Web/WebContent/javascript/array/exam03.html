@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+	
+	let array = [ 1, 2, 3, 4, 5 ]
+	
+//	let array2 = array //얕은 복사 (주소값만 가진다.)
+	
+	/* let array2 = []
+	
+	for(let i in array){
+		array2[i] = array[i]
+	}//LINE :: 깊은 복사 
+	*/
+	
+	//수월한 깊은 복사
+	let array2 = [...array]
+	
+	
+	console.log('array : ' + array)
+	console.log('array2 : ' + array2)
+	
+	array2[0] = 100
+
+	console.log('array : ' + array)
+	console.log('array2 : ' + array2)
+	//둘다 바뀐다
+	
+	
+</script>
+</head>
+<body>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

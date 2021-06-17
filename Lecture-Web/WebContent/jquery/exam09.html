@@ -1,0 +1,62 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+	div {
+		width : 100px;
+		height : 100px;
+		background-color : green;
+		position : absolute;
+	}
+	
+</style>
+<script src="js/jquery-3.6.0.min.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script>
+	$(document).ready(function() {	
+	
+		$('div').animate({
+			width : '200px'
+		},2000)
+		
+		$('div').animate({
+			left : '1000px',
+			opacity : '0.4'
+		},1000)
+		
+		$('div').animate({
+			width : '1000px',
+			height : '1000px',
+			opacity : '0.7'
+		},1000)
+		
+		$('div').animate({
+			height : '100px',
+			width : '200px',
+			left : '0px',
+			top : '100px',
+			opacity : '1',
+			backgroundColor : 'blue'
+		},1000/* , function(){
+			$(this).css('background-color','blue')
+		} */)
+		
+		
+		
+	/* 	$('div').animate({
+			'width' : '+=200px',
+			'height' : '200px',
+			left : '1000px',
+			top : '1000px',
+			opacity : '0.5'
+		},2000) */
+	})
+</script>
+</head>
+<body>
+	<div></div>
+</body>
+</html>

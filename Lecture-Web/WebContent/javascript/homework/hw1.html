@@ -1,0 +1,76 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+	/*
+	1 ~ 100 사이의 숫자를 입력하세요 : 32
+	1
+	2
+	짝
+	4
+	5
+	짝
+	7
+	8
+	짝 
+	뽀숑
+	11
+	12
+	짝
+	..
+	뽀뽀숑
+	...
+	28
+	짝
+	짝뽀뽀뽀쑝
+	짝
+	짝
+	 */
+
+	function samyukgu() {
+		
+		var lastNum = document.getElementById('lastNum').value
+		
+		for (var num = 1 ; num <= parseInt(lastNum); num++) {
+			var str = ''
+			var chk = 0
+			str += num
+
+			if (num % 10 == 0 ) {
+					if((num / 10) % 3 ==0) {
+					document.write('짝')
+						
+					}
+					for(let i=1 ;  i <= num / 10; i++){
+						document.write('뽀')
+					}
+					document.write('숑'+ '<br>')
+					chk ++
+				}
+			if(chk ==0 ) {				
+				for(let k = 0 ; k < str.length ; k++) {
+					if(str[k] ==3 || str[k] ==6  || str[k] ==9 ){
+						document.write('짝'+ '<br>')
+						chk ++
+						break
+					}
+				}
+			}
+				if(chk == 0) {
+					
+				document.write(num + '<br>')
+				}
+			
+		}
+	}
+</script>
+</head>
+<body>
+	<input type="text" id="lastNum" placeholder="1 ~ 100 사이의 숫자를 입력하세요">
+	<input type="button" value="실행" onclick="samyukgu()">
+
+</body>
+</html>
