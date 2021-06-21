@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+<style>
+</style>
+<script src="js/jquery-3.6.0.min.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script>
+	$(document).ready(function(){
+            
+			$(".topchk").click(function(){
+            	if($(".topchk").is(":checked")){
+            		 $(".chkBox").prop('checked',true);
+                	 $(".chkBox").attr('checked',true);  
+            	}else{
+            	 $(".chkBox").prop('checked',false);
+               	 $(".chkBox").attr('checked',false); 
+            		   		            		
+            	}
+            });//FUNCTION :: 체크박스 함수
+            
+            $(".appendTable").click(function(){//클릭한 id의 부모는 tr
+           	 
+       		 var trhtml= $(this).closest("tr");//가장 가까운 tr
+       		 var detailList = $(".detailList").length;
+       		 var location=$(this);
+       		 
+       		 if(detailList >0){//디테일 리스트 있다면, (길이로 판단하기)
+       			 $(".detailList").remove();//리스트 조회 없애기
+       		 }else{
+       			location.closest("tr").after('<tr> <td class="detailList" onclick="event.cancelBubble=true" class="chkbox"><input class="chkBox" type="checkbox" name="chkbox"/><td class = "detailList">1111</td><tr>')
+       		 }
+       	 	});
+	})
+</script>
+
+
+		
+</head>
+<body>
+
+ 	<table id="dataTable"  cellspacing="0" border = 1>
+                 <thead>
+                   <tr>
+                     <th style="text-align:center;"><input class="topchk" type="checkbox" name="chkbox"/></th>
+                     <th style="text-align:center;">번호</th>
+                   </tr>
+                 </thead>
+                
+                 <tbody>
+                      <tr>
+                         <td onclick="event.cancelBubble=true" class="chkbox"><input class="chkBox" type="checkbox" name="chkbox"/></td>
+                         <td class="appendTable">111111111111111111111111111111111111</td>
+                      </tr>
+                      
+                      <tr>
+                         <td onclick="event.cancelBubble=true" class="chkbox"><input class="chkBox" type="checkbox" name="chkbox"/></td>
+                         <td class="appendTable">22222222222222222222222222222</td>
+                      </tr>
+                      
+                      <tr>
+                         <td onclick="event.cancelBubble=true" class="chkbox"><input class="chkBox" type="checkbox" name="chkbox"/></td>
+                         <td class="appendTable">333333333333333333333333333</td>
+                      </tr>
+                      
+                      
+                 </tbody>
+               </table>
+</body>
+</html>

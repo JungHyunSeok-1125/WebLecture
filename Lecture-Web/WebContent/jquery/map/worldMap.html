@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="../js/jquery-3.6.0.min.js"></script>
+
+<script> 
+function ready() {
+
+    var worldMap = document.getElementById("worldMap");
+    var time = document.getElementById("time");
+    worldMap.addEventListener("click", function(e) {
+      console.log({x: e.layerX, y: e.layerY});
+      
+      if(e.layerX <= 1410 && e.layerX >= 1394 && e.layerY >=1242 && e.layerY <= 1271) {
+    	  $('#time').html('서울 : ' + getWorldTime(+9))
+      }
+      
+      if(e.layerX <= 2834 && e.layerX >= 2830 && e.layerY >=1205 && e.layerY <= 1208) {
+    	  $('#time').html('뉴욕 : ' + getWorldTime(-5))
+      }
+      
+      if(e.layerX <= 1490 && e.layerX >= 1487 && e.layerY >=1270 && e.layerY <= 1276) {
+    	  $('#time').html('도쿄 : ' + getWorldTime(+10))
+      }
+      
+      
+    });
+
+  }
+  
+function getWorldTime(tzOffset) { // 24시간제
+	  var now = new Date();
+	  var tz = now.getTime() + (now.getTimezoneOffset() * 60000) + (tzOffset * 3600000);
+	  now.setTime(tz);
+	 
+	 
+	  var s =
+	    leadingZeros(now.getFullYear(), 4) + '-' +
+	    leadingZeros(now.getMonth() + 1, 2) + '-' +
+	    leadingZeros(now.getDate(), 2) + ' ' +
+	 
+	    leadingZeros(now.getHours(), 2) + ':' +
+	    leadingZeros(now.getMinutes(), 2) + ':' +
+	    leadingZeros(now.getSeconds(), 2);
+	 
+	  return s;
+	}
+	 
+	function leadingZeros(n, digits) {
+	  var zero = '';
+	  n = n.toString();
+	 
+	  if (n.length < digits) {
+	    for (i = 0; i < digits - n.length; i++)
+	      zero += '0';
+	  }
+	  return zero + n;
+	}
+
+
+</script>
+</head>
+<body onload="ready()">
+<h1>세계지도</h1>
+
+		<img id="worldMap" src="img/worldMap.jpg"><br>
+		<h1><span id="time"></span></h1>
+</body>
+</html>

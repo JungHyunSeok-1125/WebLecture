@@ -1,0 +1,121 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+	/*
+	document.inputForm.hobby[0].checked
+	document.inputForm.hobby.length
+	
+	 */
+	function showInfo() {
+		let f = document.inputForm
+		let msg = ''
+		for (let i = 0; i < f.hobby.length; i++) {
+			if (f.hobby[i].checked) {
+				msg += f.hobby[i].value + '\n'
+			}
+		}
+		alert(msg)
+	}
+
+	function selectAll() {
+		let length = document.inputForm.hobby.length
+
+		for (let i = 0; i < length; i++) {
+			document.inputForm.hobby[i].checked = true
+		}
+	}
+
+	function deSelectAll() {
+		let length = document.inputForm.hobby.length
+
+		for (let i = 0; i < length; i++) {
+			document.inputForm.hobby[i].checked = false
+		}
+	}
+	/* function toggle(){
+		let length = document.inputForm.hobby.length
+		
+		for(let i = 0; i< length; i++) {
+			document.inputForm.hobby[i].checked = check
+		}
+	} */
+
+	/*
+	 function toggle() {
+      let length = document.inputForm.hobby.length
+            
+         let k = 0
+            
+            for (let i = 0; i < length; i++) {
+               if (document.inputForm.hobby[i].checked == true) {
+                  k++
+               }
+      
+            }//LINE :: for 종료
+      
+            if (k > 0) {
+               for (let j = 0; j < length; j++) {
+                  document.inputForm.hobby[j].checked = false
+               }
+            } else {
+               for (let j = 0; j < length; j++) {
+                  document.inputForm.hobby[j].checked = true
+               }
+            }//ELSE :: 종료
+   }
+
+	
+	*/
+	function toggle() {
+		let length = document.inputForm.hobby.length
+				
+				let k = 0
+				let check = true
+			
+				for (let i = 0; i < length; i++) {
+					if (document.inputForm.hobby[i].checked == true) {
+						k++
+					}
+				}//LINE :: for 종료
+		
+				if (k > 0) check = false
+				
+				for (let j = 0; j < length; j++) {
+					document.inputForm.hobby[j].checked = check
+				}
+	}
+	
+	/* function toggle() {
+		let check = true
+		let hobby = document.inputForm.hobby
+		let cnt = 0
+		for(let i = 0; i < hobby.length && hobby[i].checked; i++) {
+			cnt++
+		}
+		if(cnt == hobby.length)
+			check = false
+			
+		for(let i = 0; i < hobby.length; i++)
+			hobby[i].checked = check
+	} */
+</script>
+
+</head>
+<body>
+
+	<form name="inputForm">
+		당신의 취미는? : <br> <input type="checkbox" name="hobby" value="music">음악감상<br>
+		<input type="checkbox" name="hobby" value="movie">영화감상<br>
+		<input type="checkbox" name="hobby" value="reading">독서<br>
+		<input type="checkbox" name="hobby" value="game">게임<br>
+		<!-- <input type = "button" onclick="toggle(true)" value ="전체 선택"><br>
+		<input type = "button" onclick="toggle(false)"value ="전체 해제"><br> -->
+		<input type="button" onclick="toggle()" value="전체 선택/해제"><br>
+		<input type="button" value="결과보기" onclick="showInfo()">
+	</form>
+</body>
+</html>

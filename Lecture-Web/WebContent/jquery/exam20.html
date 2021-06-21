@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+<style>
+	img{
+		width : 200px;
+		height : 200px;
+	}
+	#wrapper{
+		display : inline-block;
+	}
+	*{
+		margin :0px;
+		float : left;
+	}
+	button {
+		height : 200px;
+	}
+</style>
+<script src="js/jquery-3.6.0.min.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script>
+$(document).ready(function() {
+	$('#after').click(function() {
+		// $('img').first().appendTo('body')
+		$('img').last().prependTo('#wrapper')
+	})
+	$('#before').click(function() {
+		$('img').first().appendTo('#wrapper')
+		//$('img').last().prependTo('body')
+	})
+	
+	setInterval(function(){
+		$('#after').trigger('click')
+	},300)
+	
+	
+})
+</script>
+
+		
+</head>
+<body>
+	<button id="before" >이전클릭</button>
+	<div >
+		<div id="wrapper">
+			<img src="/Lecture-Web/images/cat.png">
+			<img src="/Lecture-Web/images/dog.jpg">
+			<img src="/Lecture-Web/images/AKR20200103136600005_01_i_P2.jpg">	
+			<img src="/Lecture-Web/images/move.gif">
+			
+			
+		</div>
+	</div>
+	<button id="after" style="display:inline-block">이후클릭</button>
+</body>
+</html>

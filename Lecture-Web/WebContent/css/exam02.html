@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+	
+	<style type = "text/css">
+	
+		div {
+			
+			position : absolute;
+			width : 200px;
+			height : 100px;
+		}
+		#div01 {
+			z-index: 999;
+			left : 100px;
+			top : 50px;
+			background-color : rgb(194,125,94);
+		}
+		#div02 {
+			background-color : #CD66D9;
+		}
+	</style>
+</head>
+<body>
+	<!-- 100X100 빨간 사각형, 파란 사각형 그리기 -->
+	<div id = "div01">첫번째 사각형</div>
+	<div id = "div02">두번째 사각형</div>
+	<div style="width : 200px; height : 200px; left :200px; top : 200px; background-color: #F875C8" >
+		<div style="width : 100px; height : 100px; top : 500px; background-color: #D99145">
+			 사각형
+		</div>
+	 </div>
+</body>
+</html>

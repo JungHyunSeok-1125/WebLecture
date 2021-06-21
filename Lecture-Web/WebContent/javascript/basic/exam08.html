@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+<script>
+	
+	let a = 10
+	let b = 20
+	
+	const data = 'hello'
+	alert(`a : ${ a }, b : ${ b }`)
+	
+	alert(data)
+	
+	data = '안녕?'
+
+	//alert(data) //오류 발생
+	
+	/* let 은 호이스팅이 안된다. */
+	{
+		let a = 30
+		let a = 50
+		alert(`a : ${ a }, b : ${ b } , c : ${ c }`)
+	}
+
+	alert(`a : ${ a }, b : ${ b }`)
+	/* 블록단위로 연산이 이루어지기 때문에 10값이 다시 출력이 된다. */
+	
+
+</script>
+
+</head>
+<body>
+
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.min.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.css">
+  
+<style>
+	
+	
+</style>
+  <script>
+	$(document).ready(function() {
+		$('.slider').bxSlider( {
+		captions: true,
+		auto: true,
+		autoControls: true,
+		stopAutoOnClick: true,
+		pager: true,
+		slideWidth: 600,
+		speed :5
+		})
+	})
+  </script>
+  
+</head>
+<body>
+<div class="slider">
+    <div><img src="/Lecture-Web/images/cat.png" title="고양이"></div>
+    <div><img src="/Lecture-Web/images/dog.jpg" title="강아지"></div>
+    <div><img src="/Lecture-Web/images/AKR20200103136600005_01_i_P2.jpg" title="2312">	</div>
+    <div><img src="/Lecture-Web/images/move.gif" title="거울"></div>
+  </div>
+</body>
+</html>

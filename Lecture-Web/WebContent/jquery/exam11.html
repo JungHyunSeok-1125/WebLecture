@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+<style>
+</style>
+<script src="js/jquery-3.6.0.min.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script>
+
+
+	$(document).ready(function(){
+		setInterval(function(){
+			$("#star").append("*")
+		},1001)
+	}) 
+	
+	let starFunc = function() {
+		$('h1')[0].innerText += '*'
+	}
+
+	$(document).ready(function() {
+		
+	//	data = data || '*'//데이터 초기화
+		
+		$('h1').click(function(e, data = '*') {
+			$(this)[0].innerText += data
+		})
+		
+		setInterval(function() {
+			//starFunc()
+			//$('h1').click()
+			$('h1').trigger('click','*')
+		}, 10000)
+		
+	})
+	
+</script>
+
+		
+</head>
+<body>
+<div>
+	<b>
+	<span id="start">start : </span><span id="star"></span>
+	</b>
+</div>
+<h1>start : </h1>
+</body>
+</html>
