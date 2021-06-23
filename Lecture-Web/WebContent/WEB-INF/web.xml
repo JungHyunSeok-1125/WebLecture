@@ -26,6 +26,15 @@
   	<url-pattern>/method</url-pattern>
   </servlet-mapping>
   
+    <servlet>  	
+  	<servlet-name>table</servlet-name>
+  	<servlet-class>kr.ac.kopo.servlet.TableServlet</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+  	<servlet-name>table</servlet-name>
+  	<url-pattern>/table</url-pattern>
+  </servlet-mapping>
   
   <welcome-file-list>
     <welcome-file>index.html</welcome-file>
